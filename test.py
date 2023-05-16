@@ -1,4 +1,1 @@
-a = 'abcd'
-
-for k, v in enumerate(a):
-    print(k, v)
+['2 Федор 23 12000', '3 Иван 13 1200']
