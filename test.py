@@ -1,4 +1,3 @@
+lst = [2, 3, 4, 5]
 
-dct = {'vova': 'Вова'}
-
-dct['vova'].append('Владимир')
+print(' '.join(str(x) for x in lst))
