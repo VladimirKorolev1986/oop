@@ -1,20 +1,24 @@
 class AppStore:
     storage = []
-    def add_application(self, app):
-        """добавление нового приложения app в магазин"""
-        pass
 
-    def remove_application(self, app):
+    @classmethod
+    def add_application(cls, app):
+        """добавление нового приложения app в магазин"""
+        cls.storage.append(app)
+
+    @classmethod
+    def remove_application(cls, app):
         """удаление приложения app из магазина;"""
-        pass
+        cls.storage.remove(app)
 
     def block_application(self, app):
         """блокировка приложения app (устанавливает локальное свойство blocked объекта app в значение True);"""
-        pass
+        app.blocked = True
 
-    def total_apps(self):
+    @classmethod
+    def total_apps(cls):
         """возвращает общее число приложений в магазине"""
-        pass
+        return len(cls.storage)
 
 
 class Application:
@@ -23,7 +27,4 @@ class Application:
         self.blocked = False
 
 
-store = AppStore()
-app_youtube = Application("Youtube")
-store.add_application(app_youtube)
-store.remove_application(app_youtube)
+
