@@ -4,21 +4,20 @@ class Server:
     def __init__(self):
         self.ip += 1
         Server.ip = self.ip
-        self.buffer = {}
+        self.buffer = []
+        self.router = None
 
     def send_data(self, data):
         """для отправки информационного пакета data (объекта класса Data)
         с указанным IP-адресом получателя
         (пакет отправляется роутеру и сохраняется в его буфере - локальном свойстве buffer);"""
-        self.buffer['data'] = data.data
-        self.buffer['ip_pur'] = data.ip_pur
-        return self.buffer
+        self.router.buffer.append(data)
 
     def get_data(self):
         """возвращает список принятых пакетов
         (если ничего принято не было, то возвращается пустой список) и очищает входной буфер;"""
         obj = self.buffer
-        self.buffer = {}
+        self.buffer = []
         return obj
 
     def get_ip(self):
@@ -29,12 +28,13 @@ class Server:
 class Router:
     def __init__(self):
         self.router = {}
-        self.buffer = {}
+        self.buffer = []
 
     def link(self, server):
         """для присоединения сервера server (объекта класса Server) к роутеру
         (для простоты, каждый сервер соединен только с одним роутером);"""
-        self.router[id(server)] = server
+        self.router[server.get_ip()] = server
+        server.router = self
 
     def unlink(self, server):
         """для отсоединения сервера server (объекта класса Server) от роутера;"""
@@ -43,7 +43,10 @@ class Router:
     def send_data(self):
         """для отправки всех пакетов (объектов класса Data)
         из буфера роутера соответствующим серверам (после отправки буфер должен очищаться)."""
-        pass
+        for i in self.buffer:
+            rout = self.router[i.ip_pur]
+            rout.buffer.append(i.data)
+        self.buffer = []
 
 
 class Data:
