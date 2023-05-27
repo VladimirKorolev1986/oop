@@ -1,5 +1,5 @@
-dct = {1: '2323',
-       3: '434',
-       5: "777"}
+def drrr(*args):
+    return args
 
 
+print(drrr(3, 4, 64))
