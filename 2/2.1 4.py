@@ -1,6 +1,8 @@
 class Money:
-    def __init__(self, money=0):
-        self.__money = money
+    def __init__(self, money):
+        self.__money = 0
+        if self.__check_money(money):
+            self.__money = money
 
     def set_money(self, money):
         if self.__check_money(money):
