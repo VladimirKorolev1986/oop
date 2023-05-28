@@ -1,5 +1,7 @@
-def drrr(*args):
-    return args
+f = 'koro..x@gmail.com'
 
-
-print(drrr(3, 4, 64))
+for i in range(len(f)-1):
+    if f[i] != '.' and f[i+1] != '.':
+        print(True)
+    else:
+        print(False)
