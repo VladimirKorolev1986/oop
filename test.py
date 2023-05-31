@@ -1,7 +1,7 @@
-f = 'koro..x@gmail.com'
+x = int(input("Введите целое число: "))
 
-for i in range(len(f)-1):
-    if f[i] != '.' and f[i+1] != '.':
-        print(True)
-    else:
-        print(False)
+if x in range(2, 6):
+    print("Da")
+else:
+    print("No")
+6
