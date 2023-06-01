@@ -1,7 +1,3 @@
-x = int(input("Введите целое число: "))
+lst = [12, 3, 54, 6, 8]
 
-if x in range(2, 6):
-    print("Da")
-else:
-    print("No")
-6
+print(lst[-1:])
