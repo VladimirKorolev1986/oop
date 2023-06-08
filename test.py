@@ -1,3 +1,3 @@
-import random
+s = "ava.8.jpg"
 
-print(random.randint(5,20))
+print(s.rsplit('.')[::-1][0])
