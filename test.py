@@ -1,3 +1,5 @@
-s = "ava.8.jpg"
+s = 'd'
+s1 = '-1'
 
-print(s.rsplit('.')[::-1][0])
+print(s.isdigit())
+print(s1.isdigit())
