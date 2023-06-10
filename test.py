@@ -1,6 +1,9 @@
-lst = ["Пункт меню 1", "Пункт меню 2", "Пункт меню 3"]
-s=''
-for i in lst:
-    s += f'<li>{i}</li>\n'
+def dd(request):
+    if request.get('method') is None or request.get('method') == 'GET':
+        return 'GET'
+    return None
 
-print(s)
+
+d = {"method": "GET", "url": "contact.html"}
+
+print(dd(d))
