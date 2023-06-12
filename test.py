@@ -1,3 +1,9 @@
-s = 'id=1, fio=Sergey, old=33,'
+a  = 5
+print(type(5))
 
-print(s)
+
+if type(a) in (int, float):
+    print('YES')
+
+else:
+    print('NO')
