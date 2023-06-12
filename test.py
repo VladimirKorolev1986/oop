@@ -1,4 +1,3 @@
-# for _ in range(5):
-x = input()
+s = 'id=1, fio=Sergey, old=33,'
 
-print([int(x) for x in x.split()])
+print(s)
