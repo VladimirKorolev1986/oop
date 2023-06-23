@@ -1,22 +1,7 @@
-class Stack:
-    def __init__(self):
-        self.top = None
-
-    def push_back(self, obj):
-        if not self.top:
-            self.top = obj
-        else:
-
-
-    def pop_back(self):
-        pass
-
-
 class StackObj:
     def __init__(self, data):
-        self.__data = self.__next = None
-        self.data = data
-        self.next = None
+        self.__data = data
+        self.__next = None
 
     @property
     def data(self):
@@ -33,3 +18,44 @@ class StackObj:
     @next.setter
     def next(self, obj):
         self.__next = obj
+
+
+class Stack:
+    def __init__(self):
+        self.top = None
+        self.__last = None
+
+    def push_back(self, obj):
+        if self.__last:
+            self.__last.next = obj
+        self.__last = obj
+        if self.top is None:
+            self.top = obj
+
+    def pop_back(self):
+        h = self.top
+        if h is None:
+            return
+        while h.next and h.next != self.__last:
+            h = h.next
+        if self.top == self.__last:
+            self.top = self.__last = None
+        else:
+            h.next = None
+            self.__last = h
+
+    def __add__(self, other):
+        self.push_back(other)
+        return self
+
+    def __iadd__(self, other):
+        return self.__add__(other)
+
+    def __mul__(self, other):
+        for i in other:
+            self.push_back(StackObj(i))
+        return self
+
+    def __imul__(self, other):
+        self.__mul__(other)
+        return self
