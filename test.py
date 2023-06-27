@@ -1,1 +1,4 @@
-print(1 in [2, 3, True])
+s = '-'
+s = s.replace( '-', '')
+
+print(s)
