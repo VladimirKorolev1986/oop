@@ -31,3 +31,4 @@ print(body1 < body2 ) # True, если масса тела body1 больше м
 print(body1 == body2)  # True, если масса тела body1 равна массе тела body2
 print(body1 < 10)  # True, если масса тела body1 меньше 10
 print(body2 == 5)  # True, если масса тела body2 равна 5
+print("Yes")
