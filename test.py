@@ -1,4 +1,4 @@
-s = '-'
-s = s.replace( '-', '')
-
-print(s)
+for i in range(10):
+    print(i)
+    
+    

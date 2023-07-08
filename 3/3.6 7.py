@@ -20,7 +20,7 @@ class Record:
         Record.pk = self.pk
 
 
-rec1 = Record('vova', 'kind', '36')
+rec1 = Record(' vova', 'kind', '36')
 rec2 = Record('vasya', 'kind', '37')
 rec3 = Record('lina', 'kind', '36')
 
